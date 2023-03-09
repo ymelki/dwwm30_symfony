@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+PAGE DE D'ACCUEUIL : Votre formateur s'appelle : {{ nom_formateur }} .
+<p>Test du nom du controlleur {{ controller_name }}
+Test de la variable : {{ mavariable }}
+
+
+<img src="{{ asset('img/telephone.jpg') }}">
+{% endblock %}
