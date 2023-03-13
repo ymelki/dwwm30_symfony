@@ -2,19 +2,20 @@
 
 namespace App\Controller;
 
-use App\Form\ContactType;
+use App\Form\TvaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ContactController extends AbstractController
+class TvaController extends AbstractController
 {
-    #[Route('/contact', name: 'app_contact')]
+    #[Route('/tva', name: 'app_tva')]
     public function index(Request $request): Response
     {
-        $form = $this->createForm(ContactType::class);
- 
+        $form = $this->createForm(TvaType::class);
+
+        
         // on prend l'objet form qui va lire la request
         $form->handleRequest($request);
 
@@ -24,9 +25,11 @@ class ContactController extends AbstractController
             // contenant les données envoyé en POST
             $data= $form->getData();
 
+            $data['tva']=$data['prix']*0.2;
+
             // renvoie une twig contenant les données du form
             // avec la variable task
-            return $this->render('contact/traitement.html.twig', [
+            return $this->render('tva/traitement.html.twig', [
                 'mes_donnes'=>$data 
             ]);
 
@@ -34,8 +37,9 @@ class ContactController extends AbstractController
         }
 
 
-        return $this->renderForm('contact/index.html.twig', [
-            'mon_form'=>$form,
+
+        return $this->renderForm('tva/index.html.twig', [
+            'form_tva' => $form,
         ]);
     }
 }
