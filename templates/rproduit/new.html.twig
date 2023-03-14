@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Rproduit{% endblock %}
+
+{% block body %}
+    <h1>Create new Rproduit</h1>
+
+    {{ include('rproduit/_form.html.twig') }}
+
+    <a href="{{ path('app_rproduit_index') }}">back to list</a>
+{% endblock %}

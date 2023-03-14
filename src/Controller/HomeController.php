@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/admin/test', name: 'app_home')]
     public function index(Request $request): Response
     {
         $formateur="Yoel";
